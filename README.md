@@ -1,51 +1,66 @@
-Task: Fetch 5 random users every 5 minutes from https://randomuser.me/api/ and store their details in the database.
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-    1.Database migrations for users, user_details, and locations tables 
-    2.Laravel Scheduler is properly configured on the system.
-    3.Create a Custom Artisan Command 
-          php artisan make:command FetchRandomUsers
-     It will generate a command file app/Console/Commands/FetchRandomUsers.php
-     Now create User, UserDetail, Location model.
-     Here all the model is included, a signature and description present for the command. Also here all the code is written as per the requirements. 
-    4.Register the Command in the Scheduler
-        In App\Console\Kernel.php file add the command to the schedule method.
-    5.Test the Command
-        To test the command php artisan fetch:random-users
-    6.Setting Up the Scheduler
-        in crobtab schedule the task 
-        crontab -e
-        * * * * * php /var/www/html/task-scheduler/artisan schedule:run >> /dev/null 2>&1
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-        the crontab will run every minute to check if there is any task
-    7.Create a Public API: 
-        Here create a API
-        Request:  GET http://127.0.0.1:8000/api/users?city=Alshus&country=&limit=5&fields[]=name&fields[]=city
-        It is a Filterable User API
-        parameter:
-            Key	        Value
-            gender	    male
-            city	    London
-            country	    UK
-            limit	    5
-            fields[]	name
-            fields[]	email
-        
-        Response:
+## About Laravel
 
-        [
-            {
-                "name": "John Doe",
-                "email": "john.doe@example.com"
-            },
-            {
-                "name": "Mike Smith",
-                "email": "mike.smith@example.com"
-            }
-        ]
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-        If we add another fields value, like fields[] city, then in response along with name and email, city will also be added.
-        1.To achive this create a Usercontroller.php and Fetch the data.
-        2.Add to the route routes/api.php:
-        Route::get('/users', [UserController::class, 'filterUsers']);
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Learning Laravel
+
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
